@@ -3,6 +3,11 @@ package com.cruder.springbackender.controller;
 import com.cruder.springbackender.exception.ResourceNotFoundException;
 import com.cruder.springbackender.model.Funcionario;
 import com.cruder.springbackender.repositorio.FuncionarioRepositorio;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,22 +15,43 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
+@Slf4j
 @RestController
-@RequestMapping("/api/v1/funcionarios")
-public class FuncionarioController {
+@RequestMapping(value = "/api/v1/funcionarios", produces = {"application/json"})
+@Tag(name = "open-api")
+public class FuncionarioController{
     @Autowired
     private FuncionarioRepositorio funcionarioRepositorio;
+
+
+
+    @Operation(summary = "Realizar a busca por funcionarios cadastrados",method = "GET")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "busca realizada com sucesso"),
+            @ApiResponse(responseCode = "500", description = "Erro na busca"),
+    })
+
 
     @GetMapping
     public List<Funcionario> getAllFuncionarios(){
         return funcionarioRepositorio.findAll();
     }
-    //modo de criar registro do api rest
+
+    @Operation(summary = "Realiza o upload de arquivos",method = "POST")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "metodo de enviar um dado"),
+            @ApiResponse(responseCode = "422", description = "Dados de requisição invalida"),
+            @ApiResponse(responseCode = "400", description = "Dados invalidos"),
+            @ApiResponse(responseCode = "500", description = "Error"),
+    })
+
+
     @PostMapping
     public Funcionario createFuncionario(@RequestBody Funcionario funcionario){
         return funcionarioRepositorio.save(funcionario);
     }
-    //criar o get do api rest
+
     @GetMapping("{id}")
     public ResponseEntity<Funcionario> getFuncionarioById(@PathVariable long id){
         Funcionario funcionario = funcionarioRepositorio.findById(id)

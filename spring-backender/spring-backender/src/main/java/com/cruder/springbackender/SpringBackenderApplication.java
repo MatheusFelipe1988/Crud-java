@@ -2,12 +2,15 @@ package com.cruder.springbackender;
 
 import com.cruder.springbackender.model.Funcionario;
 import com.cruder.springbackender.repositorio.FuncionarioRepositorio;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
+@OpenAPIDefinition(info = @Info(title = "Swagger api", version = "1", description = "API desenvolvida para documentação deste projeto"))
 
 public class SpringBackenderApplication implements CommandLineRunner {
 
