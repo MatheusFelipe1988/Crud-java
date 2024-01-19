@@ -1,2 +1,13 @@
 # Crud-java
-Meu projeto em crud com Spring,API Rest,Java,MySQL,Postman, Swagger para documentação e usando a IDE Intellij, que tive muito esforço e aprendizado em desenvolver
+Meu primeiro projeto que faz proveito da API Rest que utiliza os Get, Put, Delete e Post em Java Web
+&nbsp;
+
+
+## Main Stacks:
+Linguagens e frameworks utilizados para esta aplicação
+
+- Java
+- Springboot
+- Swagger
+- MySQL
+- Postman
