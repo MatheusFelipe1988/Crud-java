@@ -1,5 +1,5 @@
 # Crud-java
-Meu primeiro projeto que faz proveito da API Rest que utiliza os Get, Put, Delete e Post em Java Web
+Dois projetos de API Rest que utiliza os metodos Get, Put, Delete e Post em Java Web, um de produto e outro de funcionario
 &nbsp;
 
 
