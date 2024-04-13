@@ -1,5 +1,5 @@
 # Crud-java
-Dois projetos de API Rest que utiliza os metodos Get, Put, Delete e Post em Java Web, um de produto e outro de funcionario
+Dois projetos em API Rest que utiliza os metodos Get, Put, Delete e Post em Java, um para funcionario e outro para produto.
 &nbsp;
 
 
